@@ -1,0 +1,21 @@
+{
+    "name": "zhuzixian520/yii2-api-doc",
+    "description": "Generate online api document by code annotation for yii2 easily",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","api doc"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Trevor",
+            "email": "zhuzixian520@126.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "zhuzixian520\\api_doc\\": ""
+        }
+    }
+}
