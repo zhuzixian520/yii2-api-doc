@@ -10,7 +10,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist zhuzixian520/yii2-api-doc "*"
+composer require --prefer-dist zhuzixian520/yii2-api-doc "*"
 ```
 
 or add
@@ -19,8 +19,11 @@ or add
 "zhuzixian520/yii2-api-doc": "*"
 ```
 
-to the require section of your `composer.json` file.
+to the require section of your `composer.json` file and run
 
+```
+composer install
+```
 
 Usage
 -----
@@ -28,4 +31,5 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?= \zhuzixian520\api_doc\AutoloadExample::widget(); ?>```
+<?= \zhuzixian520\api_doc\AutoloadExample::widget(); ?>
+```
