@@ -18,6 +18,14 @@ class DefaultController extends Controller
      */
     public $module;
 
+    public function init()
+    {
+        parent::init();
+
+        //给当前view设置params参数，给layout传参
+        Yii::$app->view->params = $this->_getLoyoutParams();
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -43,9 +51,6 @@ class DefaultController extends Controller
         $data = [
             'apiModuleList' => $apiModuleList,
             'ver' => $version,
-            'host_api' => $this->_getApiHost(),
-            'author' => $this->module->author,
-            'email' => $this->module->email,
         ];
 
         return $this->render('index', $data);
@@ -91,12 +96,27 @@ class DefaultController extends Controller
             'route' => $route,
             'ver' => $ver,
             //'tab_name' => $arr[1],
-            'host_api' => $this->_getApiHost(),
-            'author' => $this->module->author,
-            'email' => $this->module->email,
         ];
 
         return $this->render('detail', $data);
+    }
+
+    private function _getLoyoutParams()
+    {
+        return [
+            'host_api' => $this->_getApiHost(),
+            'author' => $this->module->author,
+            'email' => $this->module->email,
+
+            'logo_src' => $this->module->logo_src,
+            'icp_num' => $this->module->icp_num,
+            'icp_website' => $this->module->icp_website,
+            'copyright_website' => $this->module->copyright_website,
+            'company_start_year' => $this->module->company_start_year,
+            'is_show_fae' => $this->module->is_show_fae,
+            'fae_name' => $this->module->fae_name,
+            'fae_website' => $this->module->fae_website,
+        ];
     }
 
     private function _getApiHost()

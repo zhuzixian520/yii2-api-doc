@@ -3,11 +3,12 @@
 /* @var $this yii\web\View */
 /* @var $ver string */
 /* @var $apiModuleList array */
-/* @var $host_api string */
-/* @var $author string */
-/* @var $email string */
 
 use yii\helpers\Url;
+
+$host_api = Yii::$app->params['host_api'] ?? '';
+$author = Yii::$app->params['author'] ?? '';
+$email = Yii::$app->params['email'] ?? '';
 
 $this->title = 'API文档 ' . $ver . '.0.0'. ' - '. Yii::$app->name;
 

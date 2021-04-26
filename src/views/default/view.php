@@ -5,17 +5,16 @@
 /* @var $route string */
 /* @var $ver string */
 
-/* @var $host_api string */
-/* @var $author string */
-/* @var $email string */
-
-
 use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\Breadcrumbs;
 
+$host_api = Yii::$app->params['host_api'] ?? '';
+$author = Yii::$app->params['author'] ?? '';
+$email = Yii::$app->params['email'] ?? '';
+
 //$this->title = 'API文档 ' . $ver . '.0.0'. ' - '. Yii::$app->name;
-$this->title = $notes['name'] . ' - ' . Yii::$app->name . ' API v1.0.0';
+$this->title = $notes['name'] . ' - ' . Yii::$app->name . ' API文档 ' . $ver . '.0.0';
 //$this->params['breadcrumbs'][] = '接口 - ' . $notes['name'];
 $token = $notes['token'] ?? 0;
 ?>

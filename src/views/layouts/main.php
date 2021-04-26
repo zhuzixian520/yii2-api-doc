@@ -2,17 +2,26 @@
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-/* @var $logo_src string */
 
-use api_cms\assets\AppAsset;
+$logo_src = Yii::$app->params['logo_src'] ?? '';
+$icp_num = Yii::$app->params['icp_num'] ?? '';
+$icp_website = Yii::$app->params['icp_website'] ?? '';
+$company_start_year = Yii::$app->params['company_start_year'] ?? '';
+$copyright_website = Yii::$app->params['copyright_website'] ?? '';
+$is_show_fae = Yii::$app->params['is_show_fae'] ?? '';
+$fae_name = Yii::$app->params['fae_name'] ?? '';
+$fae_website = Yii::$app->params['fae_website'] ?? '';
+
+use zhuzixian520\api_doc\ApiDocAsset;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
-use common\components\SysCfg;
 
-AppAsset::register($this);
+$brandLabel = $logo_src ? '<img style="float: left;margin: -6px 8px 0 0;" src="' . $logo_src . '" height="32" width="32">' : '';
+
+ApiDocAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -25,8 +34,8 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <meta name="description" content="<?= Yii::$app->name;?>"/>
     <meta name="keywords" content="<?= Yii::$app->name;?>"/>
-    <meta name="author" content="<?= SysCfg::COMPANY_SHORT;?>"/>
-    <meta name="copyright" content="<?= SysCfg::COMPANY;?>"/>
+    <meta name="author" content="<?= Yii::$app->name;?>"/>
+    <meta name="copyright" content="<?= Yii::$app->name;?>"/>
     <?php $this->head() ?>
 </head>
 <body>
@@ -37,7 +46,7 @@ AppAsset::register($this);
     NavBar::begin([
         //'brandLabel' => Yii::$app->name,
         //'brandImage' => '/img/logo_64_64.png',
-        'brandLabel' => '<img style="float: left;margin: -6px 8px 0 0;" src="/img/logo_64_64.png" height="32"><span>' . Yii::$app->name . '</span>',
+        'brandLabel' => $brandLabel . '<span>' . Yii::$app->name . '</span>',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -78,13 +87,26 @@ AppAsset::register($this);
 <footer class="footer">
     <div class="container">
         <!--
-        <p class="pull-left">&copy; <?//= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+        <p class="pull-left">&copy; <?//= Html::encode(Yii::$app->name) ?> <?//= date('Y') ?></p>
 
         <p class="pull-right"><?//= Yii::powered() ?></p>
         -->
 
-        <p class="pull-left"><?= SysCfg::COPYRIGHT;?> <?= SysCfg::ICP;?></p>
-        <p class="pull-right"><?= SysCfg::FAE;?> 基于Yii <?= Yii::getVersion();?></p>
+        <p class="pull-left">
+            Copyright &copy; <?php if ($company_start_year) {?><?= $company_start_year;?> - <?php }?><?= date('Y') ?>
+            <?php if ($copyright_website) {?>
+            <a href="<?= $copyright_website;?>" target="_blank" rel="nofollow">
+            <?php }?>
+                <?= Yii::$app->name;?>
+            <?php if ($copyright_website) {?>
+            </a>
+            <?php }?>
+             版权所有;
+            <?php if ($icp_num) {?>
+             <a href="<?= $icp_website;?>" target="_blank" rel="nofollow"><?= $icp_num;?></a>;
+            <?php }?>
+        </p>
+        <p class="pull-right"><?php if ($is_show_fae) {?>技术支持：<a href="<?= $fae_website;?>" title="<?= $fae_name;?>" target="_blank" rel="nofollow"><?= $fae_name;?></a><?php }?> 基于Yii <?= Yii::getVersion();?></p>
     </div>
 </footer>
 

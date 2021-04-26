@@ -15,8 +15,16 @@ class Module extends \yii\base\Module implements BootstrapInterface
     public $hostApiDev = '';
     public $hostApiProd = '';
     public $hostApiTest = '';
+    public $logo_src = '';
     public $author = 'Trevor';
     public $email = 'service@wangxiankeji.com';
+    public $icp_num = '';
+    public $icp_website = 'http://beian.miit.gov.cn';
+    public $copyright_website = '';
+    public $company_start_year = '';
+    public $is_show_fae = true;
+    public $fae_name = '网仙科技';
+    public $fae_website = 'http://www.wangxiankeji.com';
 
     /**
      * {@inheritdoc}
