@@ -16,7 +16,7 @@ class AnnotationHelper
         $description = '';
         $returns = [];
         $params = [];
-        $rMethod = new ReflectionMethod($className, $methodName);
+        $rMethod = new \ReflectionMethod($className, $methodName);
         $docComment = $rMethod->getDocComment();
         $docCommentArr = explode("\n", $docComment);
         foreach ($docCommentArr as $comment) {

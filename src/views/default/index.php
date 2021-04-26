@@ -1,15 +1,19 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $ver string*/
-/* @var $apiModuleList array*/
+/* @var $ver string */
+/* @var $apiModuleList array */
+/* @var $host_api string */
+/* @var $author string */
+/* @var $email string */
 
 use yii\helpers\Url;
 
 $this->title = 'API文档 ' . $ver . '.0.0'. ' - '. Yii::$app->name;
+
 ?>
 <div class="index">
-    <div class="alert alert-warning" role="alert"><strong>API统一地址：</strong><?= Yii::$app->params['site']['api_ec'] . '/' . $ver . '/';?>+接口服务</div>
+    <div class="alert alert-warning" role="alert"><strong>API统一地址：</strong><?= $host_api . '/' . $ver . '/';?> + 接口服务</div>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -24,7 +28,7 @@ $this->title = 'API文档 ' . $ver . '.0.0'. ' - '. Yii::$app->name;
         <?php $j=0; foreach ($apiModuleList as $k => $v){?>
             <tr>
                 <td><?= $j+1;?></td>
-                <td><a href="<?= Url::toRoute(['index/detail', 'route' => $ver. '/' .$v['route'], 'ver' => $ver, ]);?>" target='_blank'><?= $v['route'];?></a></td>
+                <td><a href="<?= Url::toRoute(['default/view', 'route' => $ver. '/' .$v['route'], 'ver' => $ver, ]);?>" target='_blank'><?= $v['route'];?></a></td>
                 <td><?= $v['name'];?></td>
                 <td><label class='label <?= $v['method'] == 'POST' ? 'label-primary' : 'label-success';?>'><?= strtoupper($v['method']);?></label></td>
                 <td><?= $v['desc'];?></td>
@@ -33,6 +37,6 @@ $this->title = 'API文档 ' . $ver . '.0.0'. ' - '. Yii::$app->name;
         </tbody>
     </table>
     <div class="alert alert-success" role="alert">
-        <strong>温馨提示：</strong> 此接口服务列表根据后台代码自动生成，如有疑问，请咨询架构师Trevor，邮箱：<a href="mailto:service@wangxiankeji.com">service@wangxiankeji.com</a>
+        <strong>温馨提示：</strong> 此接口服务列表根据后台代码自动生成，如有疑问，请咨询PHP架构师 <?= $author;?>，邮箱：<a href="mailto:<?= $email;?>"><?= $email;?></a>
     </div>
 </div>

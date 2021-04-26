@@ -5,6 +5,7 @@ namespace zhuzixian520\api_doc\controllers;
 use Yii;
 use yii\helpers\FileHelper;
 use yii\helpers\Inflector;
+use yii\helpers\StringHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -42,9 +43,80 @@ class DefaultController extends Controller
         $data = [
             'apiModuleList' => $apiModuleList,
             'ver' => $version,
+            'host_api' => $this->_getApiHost(),
+            'author' => $this->module->author,
+            'email' => $this->module->email,
         ];
 
-        return $this->render('index');
+        return $this->render('index', $data);
+    }
+
+    public function actionView()
+    {
+        $this->layout = 'main';
+
+        $route = Yii::$app->request->get('route');
+        $ver = Yii::$app->request->get('ver');
+        $arr = explode('/',$route);
+        //if (count($arr) != 4 || in_array('',$arr)){
+        if (count($arr) != 3 || in_array('',$arr)){
+            throw new NotFoundHttpException('您输入的地址页面不存在');
+        }
+
+        //$c_name = Inflector::id2camel(StringHelper::mb_ucfirst($arr[2])).'Controller';
+        $c_name = Inflector::id2camel(StringHelper::mb_ucfirst($arr[1])).'Controller';
+        //$class = 'api\modules\\'.$arr[0].'\\controllers\\'.$arr[1]. '\\' .$c_name;
+        $class = 'api_cms\modules\\' . $arr[0]. '\\controllers\\' . $c_name;
+
+        //$res = strpos($arr[3], '-');
+        $res = strpos($arr[2], '-');
+        if ($res){
+            //$a = FormatHelper::trimAll(StringHelper::mb_ucwords(str_replace('-', ' ', $arr[3])));
+            $a = trim(StringHelper::mb_ucwords(str_replace('-', ' ', $arr[2])));
+        }else{
+            //$a = StringHelper::mb_ucfirst($arr[3]);
+            $a = StringHelper::mb_ucfirst($arr[2]);
+        }
+        $method = 'action'.$a;
+
+        try {
+            $notes = AnnotationHelper::getNoteDetail($class, $method);
+        } catch (\ReflectionException $e){
+            //return $e->getMessage();
+            throw new NotFoundHttpException('您输入的地址页面不存在');
+        }
+
+        $data = [
+            'notes' => $notes,
+            'route' => $route,
+            'ver' => $ver,
+            //'tab_name' => $arr[1],
+            'host_api' => $this->_getApiHost(),
+            'author' => $this->module->author,
+            'email' => $this->module->email,
+        ];
+
+        return $this->render('detail', $data);
+    }
+
+    private function _getApiHost()
+    {
+        $env = YII_ENV;
+        switch ($env) {
+            case YII_ENV_DEV:
+                $host_api = $this->module->hostApiDev;
+                break;
+            case YII_ENV_PROD:
+                $host_api = $this->module->hostApiProd;
+                break;
+            case YII_ENV_TEST:
+                $host_api = $this->module->hostApiTest;
+                break;
+            default:
+                $host_api = '';
+        }
+
+        return $host_api;
     }
 
     private function _getApiModuleList($version)

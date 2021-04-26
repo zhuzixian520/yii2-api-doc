@@ -12,6 +12,12 @@ class Module extends \yii\base\Module implements BootstrapInterface
      */
     public $controllerNamespace = 'zhuzixian520\api_doc\controllers';
 
+    public $hostApiDev = '';
+    public $hostApiProd = '';
+    public $hostApiTest = '';
+    public $author = 'Trevor';
+    public $email = 'service@wangxiankeji.com';
+
     /**
      * {@inheritdoc}
      */
