@@ -30,5 +30,41 @@ composer install
 一旦扩展安装，只需在您的代码中这样使用它:
 
 ```php
-<?= \zhuzixian520\api_doc\AutoloadExample::widget(); ?>
+return [
+    'modules' => [
+        'api_doc' => [
+            'class' => 'zhuzixian520\api_doc\Module',
+            'hostApiDev' => 'http://api-dev.demo.com',//开发环境接口主机地址
+            'hostApiProd' => 'http://api.demo.com',//生产环境接口主机地址
+            'hostApiTest' => 'http://api-test.demo.com',//测试环境接口主机地址
+            'author' => 'Trevor',
+            'email' => 'service@wangxiankeji.com'
+        ],
+    ],
+];
 ```
+
+接口中控制器代码注释
+```php
+class PassportController extends yii\rest\Controller
+{
+    /**
+     * 微信PC网页登录
+     * @method POST
+     * @token 0
+     * @param string code 同意授权后的code 是
+     * @res string token 访问令牌
+     * @return array
+     */
+    public function actionLoginByWechatPc(): array {}
+}
+```
+输出结果
+
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
+联系作者
+
+邮箱：zhuzixian520@126.com
