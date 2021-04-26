@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "zhuzixian520\\api_doc\\": ""
+            "zhuzixian520\\api_doc\\": "src"
         }
     },
     "repositories": [

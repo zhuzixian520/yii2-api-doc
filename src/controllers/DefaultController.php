@@ -2,6 +2,7 @@
 
 namespace zhuzixian520\api_doc\controllers;
 
+use Yii;
 use yii\web\Controller;
 use yii\web\Response;
 
