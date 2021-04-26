@@ -15,7 +15,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
     public $hostApiDev = '';
     public $hostApiProd = '';
     public $hostApiTest = '';
-    public $logo_src = '';
+    public $logo_src = 'https://www.yiichina.com/images/logo.svg';
     public $author = 'Trevor';
     public $email = 'service@wangxiankeji.com';
     public $icp_num = '';

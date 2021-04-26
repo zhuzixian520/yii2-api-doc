@@ -53,7 +53,11 @@ return [
             'hostApiProd' => 'http://api.demo.com',//生产环境接口主机地址
             'hostApiTest' => 'http://api-test.demo.com',//测试环境接口主机地址
             'author' => 'Trevor',
-            'email' => 'service@wangxiankeji.com'
+            'email' => 'service@wangxiankeji.com',
+            'logo_src' => '/img/logo_64_64.png',//web目录下
+            'icp_num' => '粤ICP备15025495号',
+            'copyright_website' => 'http://www.sijiche.com',
+            'company_start_year' => '2015',
         ],
         'v1' => [
             'class' => 'api\modules\v1\V1Module',
