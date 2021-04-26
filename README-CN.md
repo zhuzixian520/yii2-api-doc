@@ -1,3 +1,18 @@
+<p align="center">
+    <a href="https://github.com/yiisoft" target="_blank">
+        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
+    </a>
+    <h1 align="center">Yii2 Annotations Generate API Document Extension</h1>
+    <br>
+</p>
+
+[![Latest Stable Version](https://poser.pugx.org/zhuzixian520/yii2-api-doc/v)](//packagist.org/packages/zhuzixian520/yii2-api-doc) 
+[![Total Downloads](https://poser.pugx.org/zhuzixian520/yii2-api-doc/downloads)](//packagist.org/packages/zhuzixian520/yii2-api-doc) 
+[![Latest Unstable Version](https://poser.pugx.org/zhuzixian520/yii2-api-doc/v/unstable)](//packagist.org/packages/zhuzixian520/yii2-api-doc) 
+[![License](https://poser.pugx.org/zhuzixian520/yii2-api-doc/license)](//packagist.org/packages/zhuzixian520/yii2-api-doc)
+[![Suggesters](https://poser.pugx.org/zhuzixian520/yii2-api-doc/suggesters)](//packagist.org/packages/zhuzixian520/yii2-api-doc)
+[![Dependents](https://poser.pugx.org/zhuzixian520/yii2-api-doc/dependents)](//packagist.org/packages/zhuzixian520/yii2-api-doc)
+
 yii2-api-doc
 ============
 通过对yii2的代码注释方便地生成在线api文档
