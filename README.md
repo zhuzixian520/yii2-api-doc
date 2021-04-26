@@ -41,6 +41,9 @@ return [
             'author' => 'Trevor',
             'email' => 'service@wangxiankeji.com'
         ],
+        'v1' => [
+            'class' => 'api\modules\v1\V1Module',
+        ],
     ],
 ];
 ```
