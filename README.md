@@ -89,6 +89,14 @@ Output
 
 ![img_1.png](img_1.png)
 
+Access the API document address
+
+_just like gii or debug，and you can also change the V parameter to switch API versions_
+
+`
+http://yourhost/api_doc?v=1
+`
+
 Contact Us
 
 Email：zhuzixian520@126.com

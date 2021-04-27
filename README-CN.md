@@ -87,6 +87,15 @@ class PassportController extends yii\rest\Controller
 
 ![img_1.png](img_1.png)
 
+访问接口文档地址
+
+_类似gii与debug，你也可以修改参数V，来切换接口版本_
+
+`
+http://yourhost/api_doc?v=1
+`
+
+
 联系作者
 
 邮箱：zhuzixian520@126.com
