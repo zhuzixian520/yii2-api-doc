@@ -9,9 +9,9 @@ use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\Breadcrumbs;
 
-$host_api = Yii::$app->params['host_api'] ?? '';
-$author = Yii::$app->params['author'] ?? '';
-$email = Yii::$app->params['email'] ?? '';
+$host_api = $this->params['host_api'] ?? '';
+$author = $this->params['author'] ?? '';
+$email = $this->params['email'] ?? '';
 
 //$this->title = 'API文档 ' . $ver . '.0.0'. ' - '. Yii::$app->name;
 $this->title = $notes['name'] . ' - ' . Yii::$app->name . ' API文档 ' . $ver . '.0.0';
