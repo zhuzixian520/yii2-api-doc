@@ -72,8 +72,8 @@ class DefaultController extends Controller
         $c_name = Inflector::id2camel(StringHelper::mb_ucfirst($arr[1])).'Controller';
         //$class = 'api\modules\\'.$arr[0].'\\controllers\\'.$arr[1]. '\\' .$c_name;
         //$class = 'api_cms\modules\\' . $arr[0]. '\\controllers\\' . $c_name;
-        $class = Yii::$app->getModule($arr[0])->controllerNamespace . $c_name;
-        
+        $class = Yii::$app->getModule($arr[0])->controllerNamespace . '\\' . $c_name;
+
         //$res = strpos($arr[3], '-');
         $res = strpos($arr[2], '-');
         if ($res){
