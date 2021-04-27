@@ -99,7 +99,7 @@ class DefaultController extends Controller
             //'tab_name' => $arr[1],
         ];
 
-        return $this->render('detail', $data);
+        return $this->render('view', $data);
     }
 
     private function _getLoyoutParams()
