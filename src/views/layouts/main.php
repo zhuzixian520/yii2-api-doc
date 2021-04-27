@@ -3,14 +3,14 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-$logo_src = Yii::$app->params['logo_src'] ?? '';
-$icp_num = Yii::$app->params['icp_num'] ?? '';
-$icp_website = Yii::$app->params['icp_website'] ?? '';
-$company_start_year = Yii::$app->params['company_start_year'] ?? '';
-$copyright_website = Yii::$app->params['copyright_website'] ?? '';
-$is_show_fae = Yii::$app->params['is_show_fae'] ?? '';
-$fae_name = Yii::$app->params['fae_name'] ?? '';
-$fae_website = Yii::$app->params['fae_website'] ?? '';
+$logo_src = $this->params['logo_src'] ?? '';
+$icp_num = $this->params['icp_num'] ?? '';
+$icp_website = $this->params['icp_website'] ?? '';
+$company_start_year = $this->params['company_start_year'] ?? '';
+$copyright_website = $this->params['copyright_website'] ?? '';
+$is_show_fae = $this->params['is_show_fae'] ?? '';
+$fae_name = $this->params['fae_name'] ?? '';
+$fae_website = $this->params['fae_website'] ?? '';
 
 use zhuzixian520\api_doc\ApiDocAsset;
 use yii\helpers\Html;

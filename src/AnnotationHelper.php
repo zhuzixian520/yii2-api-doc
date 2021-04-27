@@ -95,4 +95,15 @@ class AnnotationHelper
 
         return $notes;
     }
+
+    /**
+     * 把字符串中所有的空格去掉
+     * @param $str
+     * @return mixed
+     */
+    public static function trimAll($str){
+        $str = trim($str);
+        $old_char = [' ', '　', '\t', '\n', '\r', '&nbsp;'];
+        return str_replace($old_char, '', $str);
+    }
 }
